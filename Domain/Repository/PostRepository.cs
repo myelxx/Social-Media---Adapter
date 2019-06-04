@@ -53,7 +53,7 @@ namespace Domain.Repository
 
         }
 
-        public void View()
+        public List<Post> View()
         {
             Console.WriteLine("#####################################");
             foreach (var p in _postList)
@@ -61,6 +61,8 @@ namespace Domain.Repository
                 Console.WriteLine(" Post Id: {0} \n Post Details: {1} ", p.PostId, p.PostDetails);
             }
             Console.WriteLine("#####################################");
+
+            return _postList;
         }
 
     }

@@ -10,7 +10,6 @@ namespace Domain.Business
     public class ProfileAction 
     {
         private UserRepository _userRepo = new UserRepository();
-        List<User> _userList;
         public void DisplaySpecificUser(User user)
         {
             _userRepo.DisplaySpecificUser(user);

@@ -12,6 +12,23 @@ namespace Adapter
     {
         static void Main(string[] args)
         {
+            //adapter
+            User user = new User()
+            {
+                UserId = 1,
+                Name = "Meji"
+            };
+
+            UserAction _profileAction = new UserAdapter();
+            var specific_user = _profileAction.Display(user);
+
+            Console.WriteLine("#####################################");
+            Console.WriteLine("USER PROFILE");
+            Console.WriteLine("User Id: {0} \nName: {1}", specific_user.UserId, specific_user.Name);
+            Console.WriteLine("#####################################");
+            Console.WriteLine();
+
+            //
             PostRepository post = new PostRepository();
 
             Console.WriteLine("Post ID: ");
@@ -25,8 +42,6 @@ namespace Adapter
             Console.WriteLine("Enter Post Details: ");
             string post_details = Console.ReadLine();
 
-            
-
             PostManager postManager = new PostManager();
             var insert_post = new Post() {
                 PostId = post_id,
@@ -37,7 +52,8 @@ namespace Adapter
 
             if (isValid)
             {
-                post.Add(insert_post);
+               post.Add(insert_post);
+
             }
 
             post.View();

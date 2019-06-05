@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "Adapter\Adapter.csproj", "{4D940A73-7331-49F6-B8F1-A193C93B6899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adapter", "Adapter\Adapter.csproj", "{4D940A73-7331-49F6-B8F1-A193C93B6899}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{3A213630-221A-4F1F-A9A9-DE7F20A066E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{3A213630-221A-4F1F-A9A9-DE7F20A066E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{9AD19B6D-6C5A-431F-8746-F5E6283D7D4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{9AD19B6D-6C5A-431F-8746-F5E6283D7D4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{2E191846-70B5-44E6-9574-08B1047499CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9AD19B6D-6C5A-431F-8746-F5E6283D7D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AD19B6D-6C5A-431F-8746-F5E6283D7D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AD19B6D-6C5A-431F-8746-F5E6283D7D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E191846-70B5-44E6-9574-08B1047499CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E191846-70B5-44E6-9574-08B1047499CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E191846-70B5-44E6-9574-08B1047499CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E191846-70B5-44E6-9574-08B1047499CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

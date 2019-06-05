@@ -55,12 +55,12 @@ namespace Domain.Repository
 
         public List<Post> View()
         {
-            Console.WriteLine("#####################################");
-            foreach (var p in _postList)
-            {
-                Console.WriteLine(" Post Id: {0} \n Post Details: {1} ", p.PostId, p.PostDetails);
-            }
-            Console.WriteLine("#####################################");
+            //Console.WriteLine("#####################################");
+            //foreach (var p in _postList)
+            //{
+            //    Console.WriteLine(" Post Id: {0} \n Post Details: {1} ", p.PostId, p.PostDetails);
+            //}
+            //Console.WriteLine("#####################################");
 
             return _postList;
         }

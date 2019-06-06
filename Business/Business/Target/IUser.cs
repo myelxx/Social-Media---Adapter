@@ -7,7 +7,7 @@ namespace Business.Business
 {
     public interface IUser
     {
-        User Display(User user);
+        void Display();
         List<User> ShowUser();
     }
 }

@@ -12,8 +12,23 @@ namespace Adapter
     {
         static void Main(string[] args)
         {
+            //user adapter
+            User user = new User();
+            string username = "Danifer";
 
+            //UserManager _profile = new UserAdapter(username);
+            //_profile.Display();
 
+            #region Json
+            //Non-adapted
+            //UserManager userlist = new UserManager();
+            //userlist.Display(user);
+
+            //UserManager _showUser = new UserAdapter();
+            //_showUser.ShowUser(); 
+            #endregion
+
+            #region Post Test Demo
             //post test
             // PostRepository post = new PostRepository();
 
@@ -40,20 +55,46 @@ namespace Adapter
             // {
             //    post.Add(insert_post);
 
-            // }
+            // } 
 
             // post.View()
+            #endregion
 
-            //user adapter
-            User user = new User();
-            UserManager _profile = new UserAdapter("Danifer");
-            _profile.Display(user);
+            #region User Test Demo
+            UserRepository userRepo = new UserRepository();
 
-            Console.WriteLine();
+            Console.WriteLine("User ID: ");
+            Guid user_id = userRepo.GetId();
+            Console.WriteLine(user_id);
 
-            UserManager _showUser = new UserAdapter();
-            _showUser.ShowUser();
+            Console.WriteLine("User Created: ");
+            string new_created_at = DateTime.Now.ToString();
+            Console.WriteLine(new_created_at);
 
+            Console.WriteLine("Enter Username: ");
+            string insert_username = Console.ReadLine();
+
+            Console.WriteLine("Enter Name: ");
+            string insert_name = Console.ReadLine();
+
+            UserManager userManager = new UserManager();
+            var insert_post = new User()
+            {
+                UserId = user_id,
+                Username = insert_username,
+                Name = insert_name
+            };
+
+            var isValid = userManager.UserValidate(insert_post);
+
+            if (isValid)
+            {
+                userRepo.Add(insert_post);
+
+            }
+
+            userRepo.View();
+            #endregion
         }
     }
 }

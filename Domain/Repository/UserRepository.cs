@@ -46,6 +46,18 @@ namespace Domain.Repository
             return user;
         }
 
+        public bool IsUserExist(User user)
+        {
+            User user_exist = _userList.FirstOrDefault(u => u.Username == user.Username);
+
+            if (user_exist != null)
+            {
+                Console.WriteLine("existed");
+                return false;
+
+            }
+            return true;
+        }
         public User Delete(Guid id)
         {
             User user = _userList.First(u => u.UserId == id);
@@ -73,6 +85,12 @@ namespace Domain.Repository
 
         public List<User> View()
         {
+            //Console.WriteLine("#####################################");
+            //foreach (var p in _userList)
+            //{
+            //    Console.WriteLine(" User: {0} ", p.Name);
+            //}
+            //Console.WriteLine("#####################################");
             return _userList;
         }
 

@@ -13,10 +13,10 @@ namespace Domain.Business
         {
             Name = name;
         }
-        public override User Display(User user)
+        public override void Display()
         {
             _profile.DisplaySpecificUser(Name);
-            return user;
+            //return user;
         }
 
         public override List<User> ShowUser()

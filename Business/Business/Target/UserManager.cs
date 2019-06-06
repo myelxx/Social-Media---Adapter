@@ -11,9 +11,35 @@ namespace Business.Business
     {
         UserRepository _userRepo = new UserRepository();
         List<User> userList;
-        public virtual User Display(User user)
+
+        public bool UserValidate(User user)
         {
-            return user;
+            if (!_userRepo.IsUserExist(user))
+            {
+                //use validator data annotation 
+                ICollection<ValidationResult> validationResult;
+
+                bool valid = GenericValidator.TryValidate(user, out validationResult);
+                if (!valid)
+                {
+                    foreach (ValidationResult res in validationResult)
+                    {
+                        Console.WriteLine(res.ErrorMessage);
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public virtual void Display()
+        {
+            userList = _userRepo.View();
+            foreach(var item in userList)
+            Console.WriteLine("User {0} ----", item.Name);
+
+            //return user;
         }
 
         public virtual List<User> ShowUser()

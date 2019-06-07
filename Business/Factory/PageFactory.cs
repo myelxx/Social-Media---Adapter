@@ -12,9 +12,9 @@ namespace Business.Factory
         {
             switch (choice)
             {
-                case "A":
-                    return new BusinessPage();
                 case "B":
+                    return new BusinessPage();
+                case "A":
                     return new AcademicPage();
                 default:
                     return null;

@@ -10,7 +10,7 @@ namespace Repository.Repository
     {
         List<Page> _pageList = new List<Page>()
         {
-            new Page () { PageName = "Tutorials Point", PageId = 1, Created_At = ""},
+            new Page () { PageName = "Tutorials Point", PageId = 1, Created_At = "", PageType = ""},
         };
 
         public void DisplayValues(Page page)
@@ -18,10 +18,10 @@ namespace Repository.Repository
             Console.WriteLine(" Page Id: {0} \n Page Name: {1} ", page.PageId, page.PageName);
         }
 
-        public Page Add(Page page)
+        public bool Add(Page page)
         {
             _pageList.Add(page);
-            return page;
+            return true;
         }
 
         public Page Delete(int id)

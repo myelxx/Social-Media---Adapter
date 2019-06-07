@@ -112,15 +112,18 @@ namespace Adapter
             post.DisplayValues(insert_post2);
 
             //FACTORY CREATE PAGE
-            PageFactory page_factory = new PageFactory();
+            PageManager page_manager = new PageManager();
+            PageRepository page_repo = new PageRepository();
 
-            //Input string
-            string input = "A";
+            Console.WriteLine("Page name: ");
+            string new_page_name = Console.ReadLine();
+            Console.WriteLine("Page type: <A> Academic <B> Business");
+            string new_page_type = Console.ReadLine();
 
-            if (input != null)
+            if (new_page_name != null)
             {
-                Console.WriteLine("Successfully create");
-                page_factory.CreatePage(input);
+                //Console.WriteLine("Successfully create");
+                page_manager.AddNewPage(new_page_name, new_page_type);
             }
             else
             {

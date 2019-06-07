@@ -12,6 +12,8 @@ namespace Domain.Entity
 
         public string Created_At { get; set; }
 
+        public string PageType { get; set; }
+
         public virtual void DisplayPageDetails()
         {
             Console.WriteLine("Welcome to my page!");

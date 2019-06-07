@@ -1,16 +1,15 @@
 ﻿using Domain.Entity;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Domain.Repository
+namespace Repository.Repository
 {
     public class UserRepository
     {
         Guid new_user_id = Guid.NewGuid();
-
+        
         List <User> _userList = new List <User> ()
         {
             new User () { UserId = Guid.NewGuid(), Username = "Meji", Name = "Meji" },
@@ -24,7 +23,6 @@ namespace Domain.Repository
 
         public User DisplaySpecificUser(string name)
         {
-
             User specific_user = _userList.First(u => u.Name == name);
 
             if (specific_user != null)
@@ -48,11 +46,10 @@ namespace Domain.Repository
 
         public bool IsUserExist(User user)
         {
-            User user_exist = _userList.FirstOrDefault(u => u.Username == user.Username);
+            User user_exist = _userList.FirstOrDefault(u => u.Username.ToLower() == user.Username.ToLower());
 
             if (user_exist != null)
             {
-                Console.WriteLine("existed");
                 return false;
 
             }

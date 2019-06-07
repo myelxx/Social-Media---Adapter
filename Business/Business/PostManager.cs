@@ -1,4 +1,5 @@
 ﻿using Domain.Entity;
+using Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,6 +9,7 @@ namespace Business.Business
 {
     public class PostManager 
     {
+       
         public bool PostValidate(Post post)
         {
             ICollection<ValidationResult> validationResult;

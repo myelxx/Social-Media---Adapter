@@ -1,5 +1,5 @@
 ﻿using Domain.Entity;
-using Domain.Repository;
+using Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,13 +9,31 @@ namespace Business.Business
 {
     public class UserManager : User
     {
-        UserRepository _userRepo = new UserRepository();
         List<User> userList;
+        private UserRepository _userRepo = new UserRepository(); //SINGLETON
+        public UserRepository GetUserRepo()
+        {
+            if (_userRepo == null)
+            {
+                this._userRepo = new UserRepository();
+            }
+
+            return this._userRepo;
+        }
+
+        public virtual void Display()
+        {
+            userList = GetUserRepo().View();
+            foreach (var item in userList)
+                Console.WriteLine("User {0} ----", item.Name);
+            //return user;
+        }
 
         public bool UserValidate(User user)
         {
             if (!_userRepo.IsUserExist(user))
             {
+                Console.WriteLine("Already existed");
                 //use validator data annotation 
                 ICollection<ValidationResult> validationResult;
 
@@ -33,27 +51,14 @@ namespace Business.Business
             return true;
         }
 
-        public virtual void Display()
+        public void isUserExist(User user)
         {
-            userList = _userRepo.View();
-            foreach(var item in userList)
-            Console.WriteLine("User {0} ----", item.Name);
-
-            //return user;
-        }
-
-        public virtual List<User> ShowUser()
-        {
-            userList = _userRepo.View();
-
-            Console.WriteLine("#####################################");
-            foreach (var item in userList)
+            var user_exist = GetUserRepo().IsUserExist(user);
+            if (user_exist)
             {
-                Console.WriteLine(" user Id: {0} \n username: {1} ", item.UserId, item.Username);
+                //
             }
-            Console.WriteLine("#####################################");
-
-            return userList;
         }
+
     }
 }

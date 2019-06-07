@@ -16,6 +16,7 @@ namespace Domain.Entity
         [Required(ErrorMessage = "Username Required")]
         [MaxLength(30, ErrorMessage = "Username should not more than 30 character")]
         [MinLength(1, ErrorMessage = "Username should be more than 1 character")]
+
         public string Username { get; set; }
     }
 }

@@ -8,6 +8,5 @@ namespace Business.Business
     public interface IUser
     {
         void Display();
-        List<User> ShowUser();
     }
 }

@@ -7,11 +7,17 @@ namespace Domain.Entity
 {
     public class Post : BaseClass
     {
-        public Guid PostId { get; set; }
+        public int PostId { get; set; }
 
         [Required(ErrorMessage = "Post Details Required")]
         [MaxLength(240, ErrorMessage = "Post Details should not more than 240 character")]
         [MinLength(3, ErrorMessage = "Post Details should be more than 3 character")]
         public string PostDetails { get; set; }
+
+        //Prototype
+        public Post ShallowCopy()
+        {
+            return (Post)this.MemberwiseClone();
+        }
     }
 }

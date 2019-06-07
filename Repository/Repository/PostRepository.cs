@@ -4,31 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Domain.Repository
+namespace Repository.Repository
 {
     public class PostRepository
     {
-        Guid new_post_id = Guid.NewGuid();
 
         List<Post> _postList = new List<Post>()
         {
-            new Post () { PostDetails = "HAHAHAHAHA", PostId = Guid.NewGuid(), Created_At = ""},
+            new Post () { PostDetails = "I want to post something", PostId = 1, Created_At = ""},
         };
 
-        public Guid GetId()
+        public void DisplayValues(Post p)
         {
-            //int post_id = _postList.Max(p => p.PostId) + 1;
-            return new_post_id;
+            Console.WriteLine(" Post Id: {0} \n Post Details: {1} ", p.PostId, p.PostDetails);
         }
 
         public Post Add(Post post)
         {
-            //post.PostId = _postList.Max(p => p.PostId) + 1;
             _postList.Add(post);
             return post;
         }
 
-        public Post Delete(Guid id)
+        public Post Delete(int id)
         {
             Post post = _postList.First(p => p.PostId == id);
 
@@ -49,18 +46,18 @@ namespace Domain.Repository
                 post.PostDetails = editPost.PostDetails;
 
             }
-            return post;
 
+            return post;
         }
 
         public List<Post> View()
         {
-            //Console.WriteLine("#####################################");
-            //foreach (var p in _postList)
-            //{
-            //    Console.WriteLine(" Post Id: {0} \n Post Details: {1} ", p.PostId, p.PostDetails);
-            //}
-            //Console.WriteLine("#####################################");
+            Console.WriteLine("#####################################");
+            foreach (var p in _postList)
+            {
+                Console.WriteLine(" Post Id: {0} \n Post Details: {1} ", p.PostId, p.PostDetails);
+            }
+            Console.WriteLine("#####################################");
 
             return _postList;
         }

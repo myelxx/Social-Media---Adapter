@@ -1,5 +1,6 @@
 ﻿using Business.Business;
 using Domain.Entity;
+using Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,18 +14,14 @@ namespace Domain.Business
         {
             Name = name;
         }
+
+       
         public override void Display()
         {
             _profile.DisplaySpecificUser(Name);
             //return user;
         }
 
-        public override List<User> ShowUser()
-        {
-            var userList = base.ShowUser();
-            _profile.UserListJSON();
-            return userList;
-        }
 
     }
 }
